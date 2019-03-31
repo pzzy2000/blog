@@ -43,23 +43,17 @@ tb02的权限是insert,update,select,delete。
 <property name="processors">1</property> 
 处理线程数量，默认是cpu数量。
 
-<property name="processorBufferChunk">4096</property> 
-每次读取留的数量，默认4096。
+
 
 <property name="processorBufferPool">409600</property>
 创建共享buffer需要占用的总空间大小。processorBufferChunk*processors*100。
 
-<property name="processorBufferPoolType">0</property>
-默认为0。0表示DirectByteBufferPool，1表示ByteBufferArena。
+
 
 <property name="processorBufferLocalPercent">100</property>
 二级共享buffer是processorBufferPool的百分比，这里设置的是百分比。
 
-<property name="sequnceHandlerType">100</property>
-全局ID生成方式。(0:为本地文件方式，1:为数据库方式；2:为时间戳序列方式；3:为ZK生成ID；4:为ZK递增ID生成。
 
-<property name="useCompression">1</property>
-是否开启mysql压缩协议。1为开启，0为关闭，默认关闭。
 
 <property name="packetHeaderSize">4</property> 
 指定 Mysql 协议中的报文头长度。默认 4。
@@ -105,14 +99,9 @@ mycat 模拟的 mysql 版本号，默认值为 5.6 版本，如非特需，不�
 <property name="useSqlStat">0</property> 
 是否开启实时统计。1为开启；0为关闭 。
 
-<property name="useGlobleTableCheck">0</property> 
-是否开启全局表一致性检测。1为开启；0为关闭 。
 
-<property name="handleDistributedTransactions">0</property>
-分布式事务开关。0为不过滤分布式事务；1为过滤分布式事务；2 为不过滤分布式事务,但是记录分布式事务日志。
 
-<property name="maxStringLiteralLength">65535</property>
-默认是65535。 64K 用于sql解析时最大文本长度 
+
 以上举例的属性仅仅是一部分，可以配置的变量很多，具体可以查看SystemConfig这个类的属性内容。 
 System标签下的属性，一般是上线后，需要根据实际运行的情况，分析后调优的时候进行修改。
 
